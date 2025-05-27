@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Editar Prestec</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/6.5.1/css/all.css} "/>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/llibres">Biblioteca
+
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/prestecs">Prestecs
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/usuaris">Usuaris</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 mt-5">
+            <form action="/actualitzar/prestec" method="post" th:object="${prestec}">
+
+
+                <div class="col-sm-8">
+                    <input type="hidden" class="form-control" id="id" autocomplete="off" th:field="*{codi}"/>
+                </div>
+
+
+                <label for="dni" class="col-sm-4 col-form-label">DNI:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="dni" autocomplete="off" th:field="*{dni}"/>
+                </div>
+
+                <label for="dataPrestec" class="col-sm-4 col-form-label">Data de Prestec:</label>
+                <div class="col-sm-8">
+                    <input type="date" class="form-control" id="dataPrestec" autocomplete="off" th:field="*{dataPrestec}" th:placeholder="yyyy-MM-dd"/>
+                </div>
+
+                <label for="dataRetorn" class="col-sm-4 col-form-label">Data de Retornat:</label>
+                <div class="col-sm-8">
+                    <input type="date" class="form-control" id="dataRetorn" autocomplete="off" th:field="*{dataRetorn}" th:placeholder="yyyy-MM-dd"/>
+                </div>
+
+                <label class="col-sm-4 col-form-label">Retornat:</label>
+                <div class="col-sm-8">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="retornat" id="retornatSi" value="Sí" th:field="*{retornat}">
+                        <label class="form-check-label" for="retornatSi">Sí</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="retornat" id="retornatNo" value="No" th:field="*{retornat}">
+                        <label class="form-check-label" for="retornatNo">No</label>
+                    </div>
+                </div>
+
+                <!--<label for="retornat" class="col-sm-4 col-form-label">Retornat:</label>
+                <div class="col-sm-8">
+
+                    <input type="text" class="form-control" id="retornat" th:field="*{retornat}"/>
+                </div> -->
+
+                <br>
+
+                <button class="btn btn-primary" type="submit">Editar</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+
+</body>
+</html>

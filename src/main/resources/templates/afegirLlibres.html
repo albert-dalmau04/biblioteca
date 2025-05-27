@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Afegir Llibre</title>
+
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css} "/>
+  <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/6.5.1/css/all.css} "/>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/llibres">Biblioteca
+
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/prestecs">Prestecs
+
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/usuaris">Usuaris</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 mt-5">
+      <form action="/insertar" method="post" th:object="${llibre}">
+          <label for="isbn" class="col-sm-4 col-form-label">Isbn</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="isbn" data-inputmask="'alias': 'isbn'"
+                   autocomplete="off" required th:field="*{isbn}"/>
+          </div>
+        <label for="titol" class="col-sm-4 col-form-label">Titol</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="titol" data-inputmask="'alias': 'titol'"
+                 autocomplete="off" required th:field="*{titol}"/>
+        </div>
+        <label for="categoria" class="col-sm-4 col-form-label">Categoria</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="categoria" data-inputmask="'alias': 'categoria'"
+                 autocomplete="off" required th:field="*{categoria}"/>
+        </div>
+        <label for="preu" class="col-sm-4 col-form-label">Preu</label>
+        <div class="col-sm-8">
+          <input type="number" placeholder="0.00" step="0.01" min="0.00" class="form-control" id="preu" data-inputmask="'alias': 'preu'"
+                 autocomplete="off" required th:field="*{preu}"/>
+        </div>
+        <label for="editorial" class="col-sm-4 col-form-label">Editorial</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="editorial" data-inputmask="'alias': 'editorial'"
+                 autocomplete="off" required th:field="*{editorial}"/>
+        </div>
+        <label for="autor" class="col-sm-4 col-form-label">Autor</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="autor" data-inputmask="'alias': 'autor'"
+                 autocomplete="off" required th:field="*{autor}"/>
+        </div>
+
+        <br>
+
+          <button class="btn btn-primary" type="submit">Guardar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+
+</body>
+</html>
